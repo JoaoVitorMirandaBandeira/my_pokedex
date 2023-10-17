@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Form } from "../components/Form"
 import { PokemonList } from "../components/PokemonList"
-import { getPokemons } from "../services/getPokemons"
+import { getPokemonsPage } from "../services/getPokemonsPage"
 import { getSpecidicPokemon } from "../services/getSpecificPokemon"
 
 const Home = (props) => {
@@ -10,7 +10,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const getDataPokemons = async () => {
-            const response = await getPokemons(30, offset);
+            const response = await getPokemonsPage(30, offset);
             const updatedPokemons = [];
             for (const e of response) {
                 const pokemon = await getSpecidicPokemon(e.url)

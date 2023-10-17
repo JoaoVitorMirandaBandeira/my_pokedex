@@ -14,9 +14,9 @@ const Pokemon = (props) => {
     },[props.idPokemon])
     return(
         <>
-        <div>
-            {JSON.stringify(pokemon)}
-        </div>
+            <div>
+                {JSON.stringify(pokemon)}
+            </div>
         </>
     )
 }
