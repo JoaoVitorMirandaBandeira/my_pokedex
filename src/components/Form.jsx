@@ -12,8 +12,8 @@ const Form = () => {
     const searchPokemons = async () => {
         const resulte = await getAllPokemons()
         const filteredPokemons = filterPokemons(resulte,textInput)
-        const firstThirty
-        console.log(filteredPokemons)
+        const firstThirty = filteredPokemons.splice(0,30)
+        console.log(firstThirty)
     }
     return(
         <>
