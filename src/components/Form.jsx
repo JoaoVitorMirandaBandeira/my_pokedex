@@ -2,7 +2,9 @@
 const Form = () => {
     return(
         <>
-            Input
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name"/>
+            <button>Buscar</button>
         </>
     )
 }

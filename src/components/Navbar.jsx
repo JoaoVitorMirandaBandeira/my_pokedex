@@ -1,9 +1,9 @@
 
-const Navbar = () => {
+const Navbar = (props) => {
     return(
         <>
             <nav>
-                <div>
+                <div onClick={props.viewHome}>
                     logo
                 </div>
                 <div>

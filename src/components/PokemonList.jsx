@@ -1,47 +1,19 @@
-import { useEffect, useState } from "react"
-import { getPokemons } from "../services/getPokemons"
-import { getSpecidicPokemon } from "../services/getSpecificPokemon"
-
-const PokemonList = () => {
-    const [pokemons, setPokemons] = useState([])
-    const [offset, setOffset] = useState(0)
-
-    useEffect(() => {
-        const getDataPokemons = async () => {
-            const response = await getPokemons(30, offset);
-            const updatedPokemons = [];
-            for (const e of response) {
-                const pokemon = await getSpecidicPokemon(e.url)
-                console.log(pokemon)
-                updatedPokemons.push({
-                    name: e.name,
-                    img: pokemon.sprites.front_default
-                })
-            };
-            setPokemons(updatedPokemons)
-
-        };
-
-        getDataPokemons();
-    }, [offset]);
-
-
+const PokemonList = (props) => {
     return (
         <>
             {
-                pokemons.map((e, i) => {
+                props.pokemons.map((e) => {
                     return (
-                        <li key={i}>
-                            {e.name}
-                            {e.img}
+                        <li key={e.id} id={e.id}>
+                            <div onClick={() => props.viewPokemon(e.id)}>{e.name}</div>
                             <img src={e.img} alt={e.name} />
                         </li>
                     )
                 })
             }
-            {(offset > 0) && <button onClick={() => setOffset(offset - 30)}>{offset / 30}</button>}
-            <div>{(offset / 30) + 1}</div>
-            <button onClick={() => setOffset(offset + 30)}>{(offset / 30) + 2}</button>
+            {(props.offset > 0) && <button onClick={() => props.setOffset(props.offset - 30)}>{props.offset / 30}</button>}
+            <div>{(props.offset / 30) + 1}</div>
+            <button onClick={() => props.setOffset(props.offset + 30)}>{(props.offset / 30) + 2}</button>
         </>
     )
 }
