@@ -1,10 +1,10 @@
-
+import logo from '../public/logo.png'
 const Navbar = (props) => {
     return(
         <>
             <nav>
                 <div onClick={props.viewHome}>
-                    logo
+                    <img src={logo} alt="Logo" />
                 </div>
                 <div onClick={props.viewFavorites}>
                     Favoritos
