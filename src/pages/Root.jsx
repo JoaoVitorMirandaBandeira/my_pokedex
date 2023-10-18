@@ -2,6 +2,7 @@ import { Home } from './Home';
 import { Navbar } from '../components/Navbar';
 import { useState } from 'react';
 import { Pokemon } from './Pokemon';
+import { Favorites } from './Favorites';
 
 const Root = () => {
     const [page,setPage] = useState('Home')
@@ -13,11 +14,15 @@ const Root = () => {
     const viewHome = () => {
         setPage("Home")
     }
+
+    const viewFavorites = () => {
+        setPage("Favorite")
+    }
     return(
         <>
-            <Navbar viewHome={viewHome}/>
+            <Navbar viewHome={viewHome} viewFavorites={viewFavorites}/>
             {
-                ((page === 'Home') && <Home viewPokemon={viewPokemon}/>) || ((page === "Pokemon") && <Pokemon idPokemon={pokemonView}/>)
+                ((page === 'Home') && <Home viewPokemon={viewPokemon}/>) || ((page === "Pokemon") && <Pokemon idPokemon={pokemonView}/>) || ((page === "Favorite") && <Favorites idPokemon={pokemonView}/>)
             }
             
         </>

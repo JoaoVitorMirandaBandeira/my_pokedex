@@ -6,8 +6,8 @@ const Navbar = (props) => {
                 <div onClick={props.viewHome}>
                     logo
                 </div>
-                <div>
-                    opçoes
+                <div onClick={props.viewFavorites}>
+                    Favoritos
                 </div>
             </nav>
         </>

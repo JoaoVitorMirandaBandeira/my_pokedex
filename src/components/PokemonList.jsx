@@ -80,7 +80,6 @@ const PokemonList = (props) => {
             {(offset.current > 0) && <button onClick={() => onClickButton(-1)}>{offset.current}</button>}
             <div>{offset.current + 1}</div>
             {(offset.current < (offset.max - 1)) && <button onClick={() => onClickButton(1)}>{offset.current + 2}</button>}
-            {offset.max}
         </>
     )
 }
