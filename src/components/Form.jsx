@@ -2,8 +2,7 @@ import { useState } from "react"
 import { getAllPokemons } from "../services/getAllPokemons"
 import { filterPokemons } from "../utils/filterPokemons"
 
-const Form = () => {
-    const [pokemons,setPokemons] = useState([])
+const Form = (props) => {
     const [textInput,setTextInput] = useState('')
     const handleInputChange = (event) => {
         const value = event.target.value
@@ -12,8 +11,7 @@ const Form = () => {
     const searchPokemons = async () => {
         const resulte = await getAllPokemons()
         const filteredPokemons = filterPokemons(resulte,textInput)
-        const firstThirty = filteredPokemons.splice(0,30)
-        console.log(firstThirty)
+        props.setFilteredPokemons(filteredPokemons)
     }
     return(
         <>

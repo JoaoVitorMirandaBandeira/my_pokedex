@@ -16,7 +16,7 @@ const Home = (props) => {
     }, []);
     return(
         <>
-            <Form/>
+            <Form setFilteredPokemons={setPokemons}/>
             <PokemonList pokemons={pokemons} viewPokemon={props.viewPokemon}/>
         </>
     )
