@@ -1,6 +1,8 @@
 # Projeto Pokémon App
 Este projeto foi desenvolvido por João Vitor e Filipe Demarque e permite aos usuários pesquisar Pokémon, visualizar seus atributos e salvá-los em uma lista de favoritos. Foi construído usando React, SCSS e Styled Components.
 
+#### Link para o Surge : https://wikimon.surge.sh/
+
 ## Como executar o projeto
 1. Certifique-se de ter o Node.js instalado em sua máquina.
 

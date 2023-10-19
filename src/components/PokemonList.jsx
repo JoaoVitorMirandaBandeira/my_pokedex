@@ -64,7 +64,6 @@ const PokemonList = (props) => {
             const firstThirty = props.pokemons.slice(min, min + 30)
             for (const e of firstThirty) {
                 const pokemon = await getSpecidicPokemon(e.url)
-                console.log(pokemon)
                 let img = pokemon.sprites.versions['generation-v']['black-white'].animated.front_default
                 if (!img) {
                     img = pokemon.sprites.front_default

@@ -11,7 +11,6 @@ const Pokemon = (props) => {
     useEffect(() => {
         const getDataPokemons = async () => {
             const pokemon = await getSpecidicPokemon(`https://pokeapi.co/api/v2/pokemon/${props.idPokemon}/`)
-            console.log(pokemon);
             setPokemon(pokemon)
         };
         getDataPokemons();
