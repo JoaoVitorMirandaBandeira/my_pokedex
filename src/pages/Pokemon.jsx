@@ -24,9 +24,9 @@ const Pokemon = (props) => {
                         <p>Nome:</p>
                         <p>{pokemon?.name}</p>
                     </div>
-                    <PokemonAbilities abilities={pokemon?.abilities} />
-                    <PokemonTypes types={pokemon?.types} />
                 </div>
+                <PokemonAbilities abilities={pokemon?.abilities} />
+                <PokemonTypes types={pokemon?.types} />
                 <div>
                     {pokemon?.sprites?.front_default && <img src={pokemon?.sprites?.front_default} alt={pokemon?.name} />}
                 </div>
