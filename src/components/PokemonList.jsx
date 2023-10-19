@@ -5,6 +5,7 @@ import { scrollToTop } from "../utils/scrollToTop"
 import { calculateMaxOffset } from "../utils/calculateMaxOffset"
 import { removeOrAddFavorites } from "../utils/removeOrAddFavorites"
 import { isIdInFavorites } from "../utils/isIdInFavorites"
+import { CardPokemon } from "../styledComponents/CardPokemon"
 
 const PokemonList = (props) => {
     const [dataPokemons, setDataPokemons] = useState([])
@@ -56,6 +57,7 @@ const PokemonList = (props) => {
                     img: img,
                     iLike: isIdInFavorites(pokemon.id)
                 })
+                "name".toUpperCase()
             };
             setDataPokemons(updatedPokemons)
         }
@@ -67,13 +69,15 @@ const PokemonList = (props) => {
             {
                 dataPokemons.map((e) => {
                     return (
-                        <li key={e.id} id={e.id}>
-                            <div onClick={() => props.viewPokemon(e.id)}>{e.name}</div>
+                        <CardPokemon key={e.id} id={e.id}>
                             <img src={e.img} alt={e.name} />
-                            <div onClick={() => likePokemon(e.id)}>
-                                { e.iLike && <i class="fa-solid fa-heart"></i> || <i class="fa-regular fa-heart"></i> }
+                            <div className="text-card">
+                                <div className="name" onClick={() => props.viewPokemon(e.id)}>{e.name[0].toUpperCase()+e.name.slice(1)}</div>
+                                <div className="heart" onClick={() => likePokemon(e.id)}>
+                                    { e.iLike && <i class="fa-solid fa-heart"></i> || <i class="fa-regular fa-heart"></i> }
+                                </div>
                             </div>
-                        </li>
+                        </CardPokemon>
                     )
                 })
             }
