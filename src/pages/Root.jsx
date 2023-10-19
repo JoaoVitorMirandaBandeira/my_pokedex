@@ -22,7 +22,7 @@ const Root = () => {
         <>
             <Navbar viewHome={viewHome} viewFavorites={viewFavorites}/>
             {
-                ((page === 'Home') && <Home viewPokemon={viewPokemon}/>) || ((page === "Pokemon") && <Pokemon idPokemon={pokemonView}/>) || ((page === "Favorite") && <Favorites idPokemon={pokemonView}/>)
+                ((page === 'Home') && <Home viewPokemon={viewPokemon}/>) || ((page === "Pokemon") && <Pokemon idPokemon={pokemonView}/>) || ((page === "Favorite") && <Favorites idPokemon={pokemonView} viewPokemon={viewPokemon}/>)
             }
             
         </>

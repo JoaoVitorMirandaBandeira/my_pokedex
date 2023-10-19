@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { Form } from "../components/Form"
 import { PokemonList } from "../components/PokemonList"
 import { getAllPokemons } from "../services/getAllPokemons"
-import styled from "styled-components"
 
 const Home = (props) => {
     const [pokemons, setPokemons] = useState([])
