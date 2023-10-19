@@ -10,9 +10,11 @@ const Nav = staled.div`
     background-color: #FF0000;
     color: #FFFFFF;
     font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
 `
 
-const Img = staled.img`
+const ImgLogo = staled.img`
     height: 40px;
     cursor: pointer;
 `
@@ -21,7 +23,7 @@ const Navbar = (props) => {
         <>
             <Nav>
                 <div onClick={props.viewHome}>
-                    <Img src={logo} alt="Logo" />
+                    <ImgLogo src={logo} alt="Logo" />
                 </div>
                 <div className='favorites' onClick={props.viewFavorites}>
                     Favoritos
