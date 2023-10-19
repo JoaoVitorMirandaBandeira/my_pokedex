@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getSpecidicPokemon } from "../services/getSpecificPokemon";
-import { PokemonDetails } from "../components/PokemonDetails";
+import { PokemonStatus } from "../components/PokemonStatus";
 
 const Pokemon = (props) => {
     const [pokemon, setPokemon] = useState({})
@@ -52,7 +52,7 @@ const Pokemon = (props) => {
                 <div>
                     <img src={pokemon?.sprites.front_default} alt={pokemon?.name} />
                 </div>
-                <PokemonDetails stats={pokemon?.stats}/>
+                <PokemonStatus stats={pokemon?.stats}/>
             </div>
         </>
     );

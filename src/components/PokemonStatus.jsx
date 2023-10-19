@@ -1,4 +1,4 @@
-const PokemonDetails = (props) => {
+const PokemonStatus = (props) => {
     return (
         <div>
             <p>Status:</p>
@@ -16,4 +16,4 @@ const PokemonDetails = (props) => {
     )
 }
 
-export { PokemonDetails }
+export { PokemonStatus }
