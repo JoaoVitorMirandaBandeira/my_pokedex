@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { getSpecidicPokemon } from "../services/getSpecificPokemon";
 import { PokemonStatus } from "../components/PokemonStatus";
+import { PokemonAbilities } from "../components/PokemonAbilities";
+import { PokemonTypes } from "../components/PokemonTypes";
 
 const Pokemon = (props) => {
     const [pokemon, setPokemon] = useState({})
@@ -22,37 +24,13 @@ const Pokemon = (props) => {
                         <p>Nome:</p>
                         <p>{pokemon?.name}</p>
                     </div>
-                    <div>
-                        <p>Habilidades:</p>
-                        <ul>
-                            {pokemon?.abilities && (
-                                pokemon.abilities.map((e) => (
-                                    <li key={e?.ability.name}>
-                                        {e?.ability.name}
-                                    </li>
-                                ))
-                            )
-                            }
-                        </ul>
-                    </div>
-                    <div>
-                        <p>Tipo:</p>
-                        <ul>
-                            {pokemon?.types && (
-                                pokemon.types.map((e) => (
-                                    <li key={e?.type.name}>
-                                        {e?.type.name}
-                                    </li>
-                                ))
-                            )
-                            }
-                        </ul>
-                    </div>
+                <PokemonAbilities abilities={pokemon?.abilities} />
+                <PokemonTypes types={pokemon?.types} />
                 </div>
                 <div>
                     <img src={pokemon?.sprites.front_default} alt={pokemon?.name} />
                 </div>
-                <PokemonStatus stats={pokemon?.stats}/>
+                <PokemonStatus stats={pokemon?.stats} />
             </div>
         </>
     );
