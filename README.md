@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# Projeto Pokémon App
+Este projeto foi desenvolvido por João Vitor e Filipe Demarque e permite aos usuários pesquisar Pokémon, visualizar seus atributos e salvá-los em uma lista de favoritos. Foi construído usando React, SCSS e Styled Components.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Como executar o projeto
+1. Certifique-se de ter o Node.js instalado em sua máquina.
 
-## Available Scripts
+2. Clone o repositório do projeto para o seu ambiente local.
 
-In the project directory, you can run:
+```bash
+git clone https://github.com/seurepositorio/pokemon-app.git
 
-### `npm start`
+cd pokemon-app
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. Instale as dependências do projeto.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install
+```
+4. Inicie o servidor de desenvolvimento.
 
-### `npm test`
+```bash
+npm start
+```
+5. O projeto estará disponível no seu navegador em http://localhost:3000.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Recursos do Projeto
 
-### `npm run build`
+- Pesquisa de Pokémon: Os usuários podem pesquisar Pokémon por nome, número ou outros critérios de pesquisa.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Visualização de Atributos: Os detalhes de cada Pokémon, como nome, tipo, estatísticas e imagem, são exibidos ao selecionar um Pokémon na lista de resultados da pesquisa.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Lista de Favoritos: Os usuários podem salvar Pokémon em uma lista de favoritos para fácil acesso posterior.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Interface Responsiva: A interface do aplicativo é responsiva e pode ser usada em dispositivos móveis e desktop.
 
-### `npm run eject`
+## Estrutura do Projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `src/components`: Contém os componentes React reutilizáveis, como `PokemonList`, `Loading`, etc.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `src/pages`: Contém os componentes de páginas principais, como `Home`,  `Favorites`, onde a lógica principal é implementada.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `src/services`: Contém funções para interagir com a API do Pokémon, como `getAllPokemons`, `getSpecificPokemon`, etc.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `src/styles`: Contém os estilos SCSS para o projeto.
 
-## Learn More
+- `src/App.js`: Arquivo de configuração principal do React.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `public`: Contém recursos públicos, como imagens.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tecnologias Utilizadas
 
-### Code Splitting
+- React
+- SCSS
+- Styled Components
+- API do Pokémon
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contribuição
 
-### Analyzing the Bundle Size
+- João Vitor - Desenvolvedor Front-End - [GitHub](https://github.com/JoaoVitorMirandaBandeira)
+- Filipe Demarque - Desenvolvedor Front-End - [GitHub](https://github.com/fdemarque)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Se desejar contribuir para o projeto, sinta-se à vontade para criar um fork, fazer melhorias e enviar um pull request.
 
-### Making a Progressive Web App
+## Possíveis Erros
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Ao configurar o projeto, tenha em mente alguns possíveis problemas que podem surgir:
 
-### Advanced Configuration
+### 1. Instalação do SASS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Problema**: Se você encontrar erros durante a instalação do SASS, verifique se as dependências necessárias estão corretamente configuradas.
 
-### Deployment
+  - **Solução**: Certifique-se de seguir as instruções de instalação do SASS de acordo com a documentação oficial para o seu sistema operacional.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 2. Python Necessário
 
-### `npm run build` fails to minify
+- **Problema**: Algumas bibliotecas e pacotes utilizados no projeto podem exigir a presença do Python em sua máquina.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  - **Solução**: Verifique se você tem o Python instalado em sua máquina e se está configurado corretamente.
+
+### 3. Versão do Node
+
+- **Problema**: O projeto pode depender de uma versão específica do Node.js, como a 18.17.1.
+
+  - **Solução**: Verifique a versão do Node.js instalada em sua máquina usando o comando `node -v` e, se necessário, atualize-a para a versão requerida.
+
+Lembre-se de verificar a documentação do projeto e os requisitos específicos para evitar esses problemas e garantir uma configuração adequada do ambiente de desenvolvimento.
+
