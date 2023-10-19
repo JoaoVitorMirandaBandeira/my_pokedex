@@ -8,6 +8,7 @@ import { isIdInFavorites } from "../utils/isIdInFavorites"
 import { CardPokemon } from "../styledComponents/CardPokemon"
 import styled from "styled-components"
 import '../style/pokemonList.scss'
+import { Loading } from "../components/loading";
 
 const PassPage = styled.div`
     display:flex;
@@ -28,6 +29,7 @@ const PokemonList = (props) => {
         current: 0,
         max: 0
     })
+    const [isLoading, setIsLoading] = useState(false)
 
     const onClickButton = (number) => {
         setOffset({ current: offset.current + number, max: offset.max })
@@ -56,6 +58,7 @@ const PokemonList = (props) => {
 
     useEffect(() => {
         const getDatapokemons = async () => {
+            setIsLoading(true)
             let updatedPokemons = []
             const min = offset.current * 30
             const firstThirty = props.pokemons.slice(min, min + 30)
@@ -74,36 +77,48 @@ const PokemonList = (props) => {
                     iLike: isIdInFavorites(pokemon.id)
                 })
             };
+            await new Promise(resolve => {
+                setTimeout(resolve, 1000);
+              });
             setDataPokemons(updatedPokemons)
+            setIsLoading(false)
         }
         getDatapokemons()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [offset])
     return (
         <>
-            <div className="section-pokemons">
-                {
-                    dataPokemons.map((e) => {
-                        return (
-                            <CardPokemon key={e.id} id={e.id}>
-                                <img src={e.img} alt={e.name} />
-                                <div className="text-card">
-                                    <div className="name" onClick={() => props.viewPokemon(e.id)}>{e.name && e.name[0].toUpperCase() + e.name.slice(1)}</div>
-                                    <div className="heart" onClick={() => likePokemon(e.id)}>
-                                        {e.iLike && <i class="fa-solid fa-heart"></i> || <i class="fa-regular fa-heart"></i>}
-                                    </div>
-                                </div>
-                            </CardPokemon>
-                        )
-                    })
-                }
-            </div>
-            <PassPage>
-                {(offset.current > 0) && <button onClick={() => onClickButton(-1)}>{"< " + offset.current}</button>}
-                <div>{offset.current + 1}</div>
-                {(offset.current < (offset.max - 1)) && <button onClick={() => onClickButton(1)}>{(offset.current + 2) + " >"}</button>}
-            </PassPage>
+            {isLoading && <Loading />}
+            {!isLoading &&
+                <>
+                    <div className="pokemon-list">
+                        <div className="section-pokemons">
+                            {
+                                dataPokemons.map((e) => {
+                                    return (
+                                        <CardPokemon key={e.id} id={e.id}>
+                                            <img src={e.img} alt={e.name} />
+                                            <div className="text-card">
+                                                <div className="name" onClick={() => props.viewPokemon(e.id)}>{e.name && e.name[0].toUpperCase() + e.name.slice(1)}</div>
+                                                <div className="heart" onClick={() => likePokemon(e.id)}>
+                                                    {e.iLike && <i class="fa-solid fa-heart"></i> || <i class="fa-regular fa-heart"></i>}
+                                                </div>
+                                            </div>
+                                        </CardPokemon>
+                                    )
+                                })
+                            }
+                        </div>
+                        <PassPage>
+                            {(offset.current > 0) && <button onClick={() => onClickButton(-1)}>{"< " + offset.current}</button>}
+                            <div>{offset.current + 1}</div>
+                            {(offset.current < (offset.max - 1)) && <button onClick={() => onClickButton(1)}>{(offset.current + 2) + " >"}</button>}
+                        </PassPage>
+                    </div>
+                </>
+            }
         </>
+
     )
 }
 

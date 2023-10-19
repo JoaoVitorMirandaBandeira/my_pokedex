@@ -1,6 +1,6 @@
 const PokemonStatus = (props) => {
     return (
-        <div>
+        <div className="card-info" >
             <p>Status:</p>
             <ul>
                 {props?.stats &&

@@ -4,9 +4,10 @@ import { useState } from 'react';
 import { Pokemon } from './Pokemon';
 import { Favorites } from './Favorites';
 
+
 const Root = () => {
-    const [page,setPage] = useState('Home')
-    const [pokemonView,setPokemonView] = useState()
+    const [page, setPage] = useState('Home')
+    const [pokemonView, setPokemonView] = useState()
     const viewPokemon = (id) => {
         setPage("Pokemon")
         setPokemonView(id)
@@ -18,14 +19,21 @@ const Root = () => {
     const viewFavorites = () => {
         setPage("Favorite")
     }
-    return(
+    return (
         <>
-            <Navbar viewHome={viewHome} viewFavorites={viewFavorites}/>
-            {
-                ((page === 'Home') && <Home viewPokemon={viewPokemon}/>) || ((page === "Pokemon") && <Pokemon idPokemon={pokemonView}/>) || ((page === "Favorite") && <Favorites idPokemon={pokemonView} viewPokemon={viewPokemon}/>)
-            }
-            
+            <Navbar viewHome={viewHome} viewFavorites={viewFavorites} />
+
+            <div>
+                {
+                    ((page === 'Home') &&
+                        <Home viewPokemon={viewPokemon} />) ||
+                    ((page === "Pokemon") && <Pokemon idPokemon={pokemonView} />) ||
+                    ((page === "Favorite") && <Favorites idPokemon={pokemonView} viewPokemon={viewPokemon} />)
+                }
+            </div>
+
         </>
+
     )
 }
 
