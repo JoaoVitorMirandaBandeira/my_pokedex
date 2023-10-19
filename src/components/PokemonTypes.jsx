@@ -1,3 +1,5 @@
+import { translateTypes } from "../utils/translateTypes"
+
 const PokemonTypes = (props) => {
     return (
         <div>
@@ -6,7 +8,7 @@ const PokemonTypes = (props) => {
                 {props?.types && (
                     props.types.map((e) => (
                         <li key={e?.type.name}>
-                            {e?.type.name}
+                            {translateTypes(e?.type.name)}
                         </li>
                     ))
                 )
