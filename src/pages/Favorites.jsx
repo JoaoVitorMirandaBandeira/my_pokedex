@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react"
-import { isIdInFavorites } from "../utils/isIdInFavorites"
-import { getSpecidicPokemon } from "../services/getSpecificPokemon"
 import { PokemonList } from "../components/PokemonList"
 
 export const Favorites = (props) => {
